@@ -5,11 +5,14 @@ Created on Tue Jan  2 13:44:41 2018
 @author: ASSG
 """
 
-from io import BytesIO
-from urllib.request import urlopen
-from zipfile import ZipFile
 import re, os, sys
-
+from io import BytesIO
+from zipfile import ZipFile
+if sys.version_info[0] >= 3:
+	from urllib.request import urlopen
+else:
+	from urllib import urlopen
+	
 framework_repo_zip_url = 'https://github.com/AlexGomesDS/Kaggle_project_framework/archive/master.zip'
 repo_path = '.'
 
@@ -23,11 +26,13 @@ def main():
 	repo_name = sys.argv[1]
 	full_repo_path = repo_path + '/' + repo_name
 	
-	with urlopen(framework_repo_zip_url) as zipresp:
-		with ZipFile(BytesIO(zipresp.read())) as zfile:
-			files_to_extract = zfile.namelist()
-			files_to_extract.remove('Kaggle_project_framework-master/install.py')
-			zfile.extractall(path = repo_path, members = files_to_extract)
+	zipresp = urlopen(framework_repo_zip_url)
+	with ZipFile(BytesIO(zipresp.read())) as zfile:
+		files_to_extract = zfile.namelist()
+		files_to_extract.remove('Kaggle_project_framework-master/install.py')
+		zfile.extractall(path = repo_path, members = files_to_extract)
+	
+	zipresp.close()
 		
 	os.rename(repo_path+'/Kaggle_project_framework-master', full_repo_path)
 	
