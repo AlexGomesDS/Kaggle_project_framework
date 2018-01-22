@@ -9,6 +9,16 @@ This class implements a class for all our preprocessing + feature engineering.
 The idea is to remove all that part from the main code in order to make it cleaner and easy to read.
 
 This class should be extended and the abstract methods implemented with the preprocessing methods of your choice.
+
+Instructions:
+	clone this repo and add the folder /src to sys.path, for example if you cloned to 
+	  C:\GIT\Kaggle_project_framework
+	run:
+		import sys
+		sys.path.append('C:\\GIT\\Kaggle_project_framework\\src')
+
+	Now you can extend the class AbstractPreprocessor from anywhere like this:
+		from features.preprocessor.abstract_preprocessor import AbstractPreprocessor 
 """
 
 #%% Import only the necessary libraries
