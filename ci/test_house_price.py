@@ -4,6 +4,8 @@ Created on Mon Jan 22 14:36:20 2018
 
 @author: ASSG
 """
+import sys
+sys.path.append('src')
 
 #%% import general libraries 
 import numpy as np 
