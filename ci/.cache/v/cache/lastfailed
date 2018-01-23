@@ -1,0 +1,4 @@
+{
+  "test_house_price.py::test_hpp_preprocessor": true,
+  "test_house_price.py::tester_hpp_preprocessor": true
+}
