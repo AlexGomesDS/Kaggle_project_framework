@@ -14,7 +14,7 @@ def append_to_path(relative_path):
     if abs_path not in sys.path:
         sys.path.append(abs_path)
 
-append_to_path("../src")
+append_to_path("/src")
 #append_to_path("ci")
 
 #%% import general libraries
