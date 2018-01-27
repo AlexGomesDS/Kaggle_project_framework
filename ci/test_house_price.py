@@ -10,12 +10,12 @@ import sys
 
 def append_to_path(relative_path):
     abs_path = os.path.abspath(relative_path)
-    print(abs_path)
     if abs_path not in sys.path:
+        print(f'Path {abs_path} added to sys.path')
         sys.path.append(abs_path)
 
 append_to_path("./src")
-#append_to_path("ci")
+append_to_path("./ci")
 
 #%% import general libraries
 import numpy as np
@@ -29,8 +29,8 @@ from house_price_prediction.framework_extensions.HousePricePred_mean_price_label
 # (can't have "test_" in the name otherwise pytest will call it)
 def localtester_hpp_preprocessor(preprocessor):
     data_preprocessor = preprocessor(["SalePrice"])
-    train_dataframe = pd.read_csv('house_price_prediction/input/train.csv', index_col='Id')
-    test_dataframe = pd.read_csv('house_price_prediction/input/test.csv', index_col='Id')
+    train_dataframe = pd.read_csv('ci/house_price_prediction/input/train.csv', index_col='Id')
+    test_dataframe = pd.read_csv('ci/house_price_prediction/input/test.csv', index_col='Id')
 
     data_preprocessor.prepare(train_dataframe)
     X_train, y_train = data_preprocessor.cook_and_split(train_dataframe)

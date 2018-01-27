@@ -8,4 +8,4 @@ install:
  - pip install scipy
  - pip install sklearn
 script:
- - pytest ci
+ - pytest
