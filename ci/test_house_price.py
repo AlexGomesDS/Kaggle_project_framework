@@ -11,7 +11,7 @@ import sys
 def append_to_path(relative_path):
     abs_path = os.path.abspath(relative_path)
     if abs_path not in sys.path:
-        print(f'Path {abs_path} added to sys.path')
+        print('Path {} added to sys.path'.format(abs_path))
         sys.path.append(abs_path)
 
 append_to_path("./src")
