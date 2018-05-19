@@ -12,12 +12,12 @@ clone this repo and add the folder /src to sys.path, for example if you cloned t
 
 	  C:\GIT\Kaggle_project_framework
 	  
-	run:
+run:
 	
 	import sys
 	sys.path.append('C:/GIT/Kaggle_project_framework/src')
 
 		
-	Now you can extend the class AbstractPreprocessor from anywhere like this:
-	
-		from features.preprocessor.abstract_preprocessor import AbstractPreprocessor 
+Now you can extend the class AbstractPreprocessor from anywhere like this:
+
+	from features.preprocessor.abstract_preprocessor import AbstractPreprocessor 
